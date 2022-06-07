@@ -15,9 +15,8 @@ func NewRouter(conn *ent.Client) *chi.Mux {
 	controller := controller.NewController(conn)
 	r.Route("/api", func(r chi.Router) {
 		r.Route("/hello", func(r chi.Router) {
-			r.Get("/", func(w http.ResponseWriter, r *http.Request) {
-				w.Write([]byte("Hello, World!"))
-			})
+			r.Get("/", controller.Get)
+			r.Post("/", controller.Post)
 		})
 	})
 
