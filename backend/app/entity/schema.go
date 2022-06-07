@@ -20,11 +20,7 @@ package entity
 }
 */
 
-type Field struct {
-	Schemas []Schema `json:"schemas"`
-}
-
-type Schema struct {
+type Propertie struct {
 	Type    string `json:"type"`
 	Example string `json:"example"`
 }
