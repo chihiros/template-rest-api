@@ -6,6 +6,8 @@ import (
 	"strconv"
 	"tamaribacms/ent"
 	"time"
+
+	_ "github.com/mattn/go-sqlite3"
 )
 
 func NewSQLite3Connection() (*ent.Client, error) {
