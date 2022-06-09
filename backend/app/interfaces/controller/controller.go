@@ -3,15 +3,25 @@ package controller
 import (
 	"net/http"
 	"tamaribacms/ent"
+	"tamaribacms/interfaces/repository"
+	"tamaribacms/usecase"
 )
 
 type Controller struct {
-	DBConn *ent.Client
+	Usecase usecase.UserUseCase
 }
 
 func NewController(conn *ent.Client) *Controller {
+	u := NewUserUsecase(conn)
 	return &Controller{
-		DBConn: conn,
+		Usecase: u,
+	}
+}
+
+func NewUserUsecase(conn *ent.Client) *usecase.UserUsecase {
+	repo := repository.NewUserRepository(conn)
+	return &usecase.UserUsecase{
+		Repository: repo,
 	}
 }
 
