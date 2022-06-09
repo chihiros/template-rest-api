@@ -26,7 +26,13 @@ func NewUserUsecase(conn *ent.Client) *usecase.UserUsecase {
 }
 
 func (c *Controller) Get(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Get, Hello, World!"))
+	users, err := c.Usecase.Get(context.Background())
+	if err != nil {
+		panic(err)
+	}
+
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(users)
 }
 
 func (c *Controller) Post(w http.ResponseWriter, r *http.Request) {
