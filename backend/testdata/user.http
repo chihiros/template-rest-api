@@ -1,1 +1,2 @@
-GET http://localhost:8686/api/hello
+### ユーザー一覧の取得
+GET http://localhost:8686/api/users
