@@ -38,5 +38,21 @@ func (c *Controller) Get(w http.ResponseWriter, r *http.Request) {
 }
 
 func (c *Controller) Post(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Post, Hello, World!"))
+	// bodyの中身をbindする
+	req := usecase.Request{}
+	err := json.NewDecoder(r.Body).Decode(&req)
+	user, err := c.Usecase.Post(context.Background(), req)
+
+	if err != nil {
+		switch err.Error() {
+		case "duplicate":
+			w.WriteHeader(http.StatusConflict)
+			json.NewEncoder(w).Encode(user)
+		default:
+			panic(err)
+		}
+	}
+
+	w.WriteHeader(http.StatusCreated)
+	json.NewEncoder(w).Encode(user)
 }

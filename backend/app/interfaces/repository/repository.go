@@ -2,8 +2,10 @@ package repository
 
 import (
 	"context"
+	"fmt"
 	"tamaribacms/ent"
-	"tamaribacms/entity"
+	"tamaribacms/usecase"
+	"time"
 )
 
 type UserRepository struct {
@@ -26,7 +28,25 @@ func (r *UserRepository) Get(ctx context.Context) (usecase.Response, error) {
 	return res, err
 }
 
+func (r *UserRepository) Post(ctx context.Context, req usecase.Request) (usecase.Response, error) {
+	user, err := r.DBConn.User.Create().
+		SetUsername(req.Username).
+		SetAge(req.Age).
+		SetCreatedAt(time.Now()).
+		SetUpdatedAt(time.Now()).
+		Save(ctx)
+
+	if err != nil {
+		if ent.IsConstraintError(err) {
+			// ent側の制約エラー
+			return usecase.Response{}, fmt.Errorf("duplicate")
+		}
 	}
 
-	return us, err
+	if err != nil {
+		panic(err)
+	}
+
+	res := usecase.Response{Data: user}
+	return res, err
 }
