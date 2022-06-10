@@ -1,2 +1,11 @@
 ### ユーザー一覧の取得
 GET http://localhost:8686/api/users
+
+#### ユーザーの追加
+POST http://localhost:8686/api/users
+Context-Type: application/json
+
+{
+    "username": "User2",
+    "age": 20
+}
