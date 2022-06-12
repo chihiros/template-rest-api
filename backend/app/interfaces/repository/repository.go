@@ -99,3 +99,14 @@ func (r *UserRepository) Put(ctx context.Context, req usecase.Request) (usecase.
 	res := usecase.Response{Data: user}
 	return res, err
 }
+func (r *UserRepository) Delete(ctx context.Context, id int) error {
+	_, err := r.DBConn.User.Delete().
+		Where(user.IDEQ(id)).
+		Exec(ctx)
+
+	if err != nil {
+		panic(err)
+	}
+
+	return err
+}

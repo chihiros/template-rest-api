@@ -21,3 +21,6 @@ Context-Type: application/json
     "username": "User2",
     "age": 20
 }
+
+### ユーザー一覧の取得
+DELETE http://localhost:8686/api/users?id=1

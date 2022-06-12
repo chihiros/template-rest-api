@@ -84,3 +84,11 @@ func (c *Controller) Put(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode(user)
 }
+
+func (c *Controller) Delete(w http.ResponseWriter, r *http.Request) {
+	id, _ := strconv.Atoi(r.URL.Query().Get("id"))
+	user := c.Usecase.Delete(context.Background(), id)
+
+	w.WriteHeader(http.StatusNoContent)
+	json.NewEncoder(w).Encode(user)
+}
