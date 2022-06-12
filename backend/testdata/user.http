@@ -12,3 +12,12 @@ Context-Type: application/json
     "username": "User2",
     "age": 20
 }
+
+#### ユーザーの追加・更新
+PUT http://localhost:8686/api/users
+Context-Type: application/json
+
+{
+    "username": "User2",
+    "age": 20
+}

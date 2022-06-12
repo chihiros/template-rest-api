@@ -16,7 +16,9 @@ func NewRouter(conn *ent.Client) *chi.Mux {
 	r.Route("/api", func(r chi.Router) {
 		r.Route("/users", func(r chi.Router) {
 			r.Get("/", controller.Get)
+			r.Get("/query", controller.GetByID)
 			r.Post("/", controller.Post)
+			r.Put("/", controller.Put)
 		})
 	})
 

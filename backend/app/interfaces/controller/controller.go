@@ -70,3 +70,17 @@ func (c *Controller) Post(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(user)
 }
+
+func (c *Controller) Put(w http.ResponseWriter, r *http.Request) {
+	// bodyの中身をbindする
+	req := usecase.Request{}
+	err := json.NewDecoder(r.Body).Decode(&req)
+	if err != nil {
+		panic(err)
+	}
+
+	user, _ := c.Usecase.Put(context.Background(), req)
+
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(user)
+}
