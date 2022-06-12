@@ -4,8 +4,11 @@ import (
 	"context"
 	"fmt"
 	"tamaribacms/ent"
+	"tamaribacms/ent/user"
 	"tamaribacms/usecase"
 	"time"
+
+	"entgo.io/ent/dialect/sql"
 )
 
 type UserRepository struct {
@@ -25,6 +28,19 @@ func (r *UserRepository) Get(ctx context.Context) (usecase.Response, error) {
 	}
 
 	res := usecase.Response{Data: users}
+	return res, err
+}
+
+func (r *UserRepository) GetByID(ctx context.Context, id int) (usecase.Response, error) {
+	user, err := r.DBConn.User.Query().
+		Where(user.IDEQ(id)).
+		All(ctx)
+
+	if err != nil {
+		panic(err)
+	}
+
+	res := usecase.Response{Data: user}
 	return res, err
 }
 

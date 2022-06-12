@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"net/http"
+	"strconv"
 	"tamaribacms/ent"
 	"tamaribacms/interfaces/repository"
 	"tamaribacms/usecase"
@@ -29,6 +30,19 @@ func NewUserUsecase(conn *ent.Client) *usecase.UserUsecase {
 
 func (c *Controller) Get(w http.ResponseWriter, r *http.Request) {
 	users, err := c.Usecase.Get(context.Background())
+	if err != nil {
+		panic(err)
+	}
+
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(users)
+}
+
+func (c *Controller) GetByID(w http.ResponseWriter, r *http.Request) {
+	// クエリパラメータからidを取得する
+	id, _ := strconv.Atoi(r.URL.Query().Get("id"))
+
+	users, err := c.Usecase.GetByID(context.Background(), id)
 	if err != nil {
 		panic(err)
 	}
