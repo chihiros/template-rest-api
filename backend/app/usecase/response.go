@@ -5,6 +5,6 @@ type Response struct {
 }
 
 type ErrorResponse struct {
-	ErrorCode    string `json:"error_code"`
-	ErrorMessage string `json:"error_message"`
+	Message    string      `json:"message"`
+	Extensions interface{} `json:"extensions"`
 }
