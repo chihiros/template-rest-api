@@ -13,3 +13,7 @@ prune:
 gen:
 	cd app; \
 	go generate ./ent
+
+gomod-update:
+	cd app; \
+	go get -u && go mod tidy
