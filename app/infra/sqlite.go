@@ -1,10 +1,10 @@
 package infra
 
 import (
+	"app/ent"
 	"context"
 	"log"
 	"strconv"
-	"tamaribacms/ent"
 	"time"
 
 	_ "github.com/mattn/go-sqlite3"

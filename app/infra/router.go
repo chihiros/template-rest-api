@@ -1,8 +1,8 @@
 package infra
 
 import (
-	"tamaribacms/ent"
-	"tamaribacms/interfaces/controller"
+	"app/ent"
+	"app/interfaces/controller"
 
 	"github.com/go-chi/chi/middleware"
 	"github.com/go-chi/chi/v5"

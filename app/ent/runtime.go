@@ -3,8 +3,8 @@
 package ent
 
 import (
-	"tamaribacms/ent/schema"
-	"tamaribacms/ent/user"
+	"app/ent/schema"
+	"app/ent/user"
 	"time"
 )
 

@@ -1,8 +1,8 @@
 package main
 
 import (
+	"app/infra"
 	"net/http"
-	"tamaribacms/infra"
 )
 
 func main() {

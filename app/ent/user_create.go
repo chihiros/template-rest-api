@@ -6,7 +6,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"tamaribacms/ent/user"
+	"app/ent/user"
 	"time"
 
 	"entgo.io/ent/dialect/sql"

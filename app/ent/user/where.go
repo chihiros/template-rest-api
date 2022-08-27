@@ -3,7 +3,7 @@
 package user
 
 import (
-	"tamaribacms/ent/predicate"
+	"app/ent/predicate"
 	"time"
 
 	"entgo.io/ent/dialect/sql"

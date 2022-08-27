@@ -7,9 +7,9 @@ import (
 	"fmt"
 	"log"
 
-	"tamaribacms/ent/migrate"
+	"app/ent/migrate"
 
-	"tamaribacms/ent/user"
+	"app/ent/user"
 
 	"entgo.io/ent/dialect"
 	"entgo.io/ent/dialect/sql"

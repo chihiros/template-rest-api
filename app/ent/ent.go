@@ -5,7 +5,7 @@ package ent
 import (
 	"errors"
 	"fmt"
-	"tamaribacms/ent/user"
+	"app/ent/user"
 
 	"entgo.io/ent"
 	"entgo.io/ent/dialect/sql"
