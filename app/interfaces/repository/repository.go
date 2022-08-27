@@ -1,11 +1,11 @@
 package repository
 
 import (
+	"app/ent"
+	"app/ent/user"
+	"app/usecase"
 	"context"
 	"fmt"
-	"tamaribacms/ent"
-	"tamaribacms/ent/user"
-	"tamaribacms/usecase"
 	"time"
 
 	"entgo.io/ent/dialect/sql"

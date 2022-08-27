@@ -7,8 +7,8 @@ import (
 	"errors"
 	"fmt"
 	"sync"
-	"tamaribacms/ent/predicate"
-	"tamaribacms/ent/user"
+	"app/ent/predicate"
+	"app/ent/user"
 	"time"
 
 	"entgo.io/ent"

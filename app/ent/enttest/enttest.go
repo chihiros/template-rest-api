@@ -4,9 +4,9 @@ package enttest
 
 import (
 	"context"
-	"tamaribacms/ent"
+	"app/ent"
 	// required by schema hooks.
-	_ "tamaribacms/ent/runtime"
+	_ "app/ent/runtime"
 
 	"entgo.io/ent/dialect/sql/schema"
 )

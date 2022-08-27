@@ -1,13 +1,13 @@
 package controller
 
 import (
+	"app/ent"
+	"app/interfaces/repository"
+	"app/usecase"
 	"context"
 	"encoding/json"
 	"net/http"
 	"strconv"
-	"tamaribacms/ent"
-	"tamaribacms/interfaces/repository"
-	"tamaribacms/usecase"
 )
 
 type Controller struct {
